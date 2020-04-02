@@ -1,74 +1,40 @@
 <template>
   <div id="app">
     <Nav />
-    <Editor v-on:addStory = "addStory"/>
-    <Stories v-bind:stories = "stories" v-on:delete-story="deleteStory"/>
+    <router-view/>
   </div>
 </template>
 
 <script>
-import Nav from "./components/Nav"
-import Editor from "./components/Editor"
-import Stories from "./components/Stories.vue";
+import Nav from './components/Nav'
 
 export default {
   name: "App",
   components: {
-    Nav,
-    Editor,
-    Stories
-  },
-  data() {
-    return {
-      stories: [
-        {
-          id: 1,
-          title: "the first",
-          content: "once upon a time, the end",
-          selected: false
-        },
-        {
-          id: 2,
-          title: "the second",
-          content: "and then it was as it had always been before",
-          selected: false
-        },
-        {
-          id: 3,
-          title: "the third",
-          content: "after a while things were pretty okay",
-          selected: true
-        }
-      ]
-    }
-  },
-  methods: {
-    deleteStory(id) {
-      this.stories = this.stories.filter(story => story.id !== id);
-    },
-    addStory(newStory) {
-      this.stories = [...this.stories, newStory]
-    }
-  },
-  created() {
-    
+    Nav
   }
-};
+}
 </script>
 
 <style>
-@import "reset.css";
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #333;
+  text-align: center;
+  color: #2c3e50;
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>

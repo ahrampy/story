@@ -9,7 +9,6 @@
 </template>
 
 <script>
-// import uuid from "uuid";
 
 export default {
   name: "Editor",
