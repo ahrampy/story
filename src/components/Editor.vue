@@ -1,26 +1,38 @@
 <template>
   <div class="editor">
     <form class="form" v-on:submit="addStory">
-      <input type="text" v-model="title" placeholder="title"/>
+      <input type="text" v-model="title" placeholder="title" />
       <input type="textarea" v-model="content" placeholder="start typing" />
+      <button type="submit"></button>
     </form>
   </div>
 </template>
 
 <script>
+// import uuid from "uuid";
+
 export default {
   name: "Editor",
-  data () {
+  data() {
     return {
-      title: '',
-      content: ''
-    }
+      title: "",
+      content: ""
+    };
   },
   methods: {
-    addStory() {
-      
+    addStory(e) {
+      e.preventDefault()
+      const newStory = {
+        id: 5,
+        title: this.title,
+        content: this.content,
+        selected: false
+      }
+      this.$emit('addStory', newStory);
+      this.title = '',
+      this.content = ''
     }
-   }
+  }
 };
 </script>
 

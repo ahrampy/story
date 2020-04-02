@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Nav />
-    <Editor />
+    <Editor v-on:addStory = "addStory"/>
     <Stories v-bind:stories = "stories" v-on:delete-story="deleteStory"/>
   </div>
 </template>
@@ -45,7 +45,13 @@ export default {
   methods: {
     deleteStory(id) {
       this.stories = this.stories.filter(story => story.id !== id);
+    },
+    addStory(newStory) {
+      this.stories = [...this.stories, newStory]
     }
+  },
+  created() {
+    
   }
 };
 </script>
