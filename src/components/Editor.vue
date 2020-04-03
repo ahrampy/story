@@ -12,6 +12,7 @@
 
 export default {
   name: "Editor",
+  props: ["selectedStory"],
   data() {
     return {
       title: "",
@@ -22,9 +23,7 @@ export default {
     addStory(e) {
       e.preventDefault()
       const newStory = {
-        id: 5,
         title: this.title,
-        content: this.content,
         selected: false
       }
       this.$emit('addStory', newStory);

@@ -1,7 +1,11 @@
 <template>
   <div id="app">
-    <Editor v-on:addStory="addStory" />
-    <Stories v-bind:stories="stories" v-on:delete-story="deleteStory" />
+    <Editor v-on:addStory="addStory" v-bind:selectedStory="selectedStory"/>
+    <Stories
+      v-bind:stories="stories"
+      v-on:selected-story="selectStory"
+      v-on:delete-story="deleteStory"
+    />
   </div>
 </template>
 
@@ -18,10 +22,19 @@ export default {
   },
   data() {
     return {
-      stories: []
+      stories: [],
+      selectedStory: {}
     };
   },
   methods: {
+    selectStory(id) {
+      this.stories = this.stories.map(story => {
+        story.id === id
+          ? ((story.selected = true), (this.selectedStory = story))
+          : (story.selected = false);
+        return story;
+      });
+    },
     deleteStory(id) {
       axios
         .delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
@@ -44,10 +57,13 @@ export default {
   created() {
     axios
       .get("https://jsonplaceholder.typicode.com/todos?_limit=10")
-      .then(res => (this.stories = res.data.map(todo => {
-        todo.selected = false;
-        return todo
-      })))
+      .then(
+        res =>
+          (this.stories = res.data.map(todo => {
+            todo.selected = false;
+            return todo;
+          }))
+      )
       .catch(err => console.log(err));
   }
 };

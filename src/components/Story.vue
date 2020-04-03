@@ -11,28 +11,28 @@ export default {
   props: ["story"],
   methods: {
     select() {
-      this.story.selected = true;
+      this.$emit("selected-story", this.story.id);      
     }
   }
-}
+};
 </script>
 
 <style scoped>
-  .story {
-    display: flex;
-    justify-content: space-between;
-    background: brown;
-  }
+.story {
+  display: flex;
+  justify-content: space-between;
+  background: brown;
+}
 
-  .story:hover {
-    background: burlywood;
-  }
+.story:hover {
+  background: burlywood;
+}
 
-  .is-current {
-    background: cornsilk;
-  }
+.is-current {
+  background: cornsilk;
+}
 
-  .delete {
-    width: 20px;
-  }
+.delete {
+  width: 20px;
+}
 </style>
