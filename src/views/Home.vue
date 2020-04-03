@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <Editor v-on:addStory="addStory" v-bind:selectedStory="selectedStory"/>
+    <TipTap />
+    <!-- <Editor v-on:addStory="addStory" v-bind:selectedStory="selectedStory"/> -->
     <Stories
       v-bind:stories="stories"
       v-on:selected-story="selectStory"
@@ -10,14 +11,14 @@
 </template>
 
 <script>
-import Editor from "../components/Editor";
+import TipTap from "../components/TipTap";
 import Stories from "../components/Stories.vue";
 import axios from "axios";
 
 export default {
   name: "Home",
   components: {
-    Editor,
+    TipTap,
     Stories
   },
   data() {
