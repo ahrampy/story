@@ -2,24 +2,24 @@
   <div id="app">
     <TipTap />
     <!-- <Editor v-on:addStory="addStory" v-bind:selectedStory="selectedStory"/> -->
-    <Stories
+    <!-- <Stories
       v-bind:stories="stories"
       v-on:selected-story="selectStory"
       v-on:delete-story="deleteStory"
-    />
+    /> -->
   </div>
 </template>
 
 <script>
 import TipTap from "../components/TipTap";
-import Stories from "../components/Stories.vue";
+// import Stories from "../components/Stories.vue";
 import axios from "axios";
 
 export default {
   name: "Home",
   components: {
     TipTap,
-    Stories
+    // Stories
   },
   data() {
     return {
