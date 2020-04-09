@@ -76,41 +76,10 @@
 
         <!-- <button
           class="menubar_button"
-          :class="{ 'is-active': isActive.bullet_list() }"
-          @click="commands.bullet_list"
-        >
-          <icon name="ul" />
-        </button>
-
-        <button
-          class="menubar_button"
-          :class="{ 'is-active': isActive.ordered_list() }"
-          @click="commands.ordered_list"
-        >
-          <icon name="ol" />
-        </button> -->
-
-        <!-- <button
-          class="menubar_button"
           :class="{ 'is-active': isActive.blockquote() }"
           @click="commands.blockquote"
         >
           <icon name="quote" />
-        </button> -->
-
-        <!-- <button
-          class="menubar_button"
-          :class="{ 'is-active': isActive.code_block() }"
-          @click="commands.code_block"
-        >
-          <icon name="code" />
-        </button> -->
-
-        <!-- <button
-          class="menubar_button"
-          @click="commands.horizontal_rule"
-        >
-          <icon name="hr" />
         </button> -->
 
         <!-- <button
