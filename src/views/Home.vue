@@ -71,7 +71,6 @@ export default {
 </script>
 
 <style>
-@import "../reset.css";
 
 * {
   box-sizing: border-box;
