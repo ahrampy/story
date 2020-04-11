@@ -40,7 +40,7 @@
           @click="commands.code"
         >
           <icon name="code" />
-        </button> -->
+        </button>-->
 
         <!-- <button
           class="menubar_button"
@@ -48,7 +48,7 @@
           @click="commands.paragraph"
         >
           <icon name="paragraph" />
-        </button> -->
+        </button>-->
 
         <!-- <button
           class="menubar_button"
@@ -56,7 +56,7 @@
           @click="commands.heading({ level: 1 })"
         >
           H1
-        </button> -->
+        </button>-->
 
         <!-- <button
           class="menubar_button"
@@ -72,7 +72,7 @@
           @click="commands.heading({ level: 3 })"
         >
           H3
-        </button> -->
+        </button>-->
 
         <!-- <button
           class="menubar_button"
@@ -80,7 +80,7 @@
           @click="commands.blockquote"
         >
           <icon name="quote" />
-        </button> -->
+        </button>-->
 
         <!-- <button
           class="menubar_button"
@@ -94,11 +94,11 @@
           @click="commands.redo"
         >
           <icon name="redo" />
-        </button> -->
+        </button>-->
       </div>
     </editor-menu-bar>
 
-    <editor-content class="editor__content" :editor="editor" />
+    <editor-content class="editor__content" :editor="editor" v-on="select" />
   </div>
 </template>
 
@@ -110,12 +110,12 @@ import {
   Italic,
   Link,
   Strike,
-  Underline,
+  Underline
 } from "tiptap-extensions";
 export default {
   components: {
     EditorContent,
-    EditorMenuBar,
+    EditorMenuBar
   },
   data() {
     return {
@@ -126,19 +126,24 @@ export default {
           new Bold(),
           new Italic(),
           new Strike(),
-          new Underline(),
+          new Underline()
         ],
-        content: `start typing...`,
-      }),
+        content: "start typing..."
+      })
     };
+  },
+  methods: {
+    clear() {
+      this.editor.content = "";
+    }
   },
   beforeDestroy() {
     this.editor.destroy();
-  },
+  }
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .editor {
   height: 100vh;
   margin: 1%;
@@ -152,19 +157,17 @@ export default {
   width: 2.4rem;
   height: 2rem;
   margin: 0 0.3rem;
-  /* top: -0.05rem; */
   border: currentColor;
   border-radius: 2px;
+  img {
+    height: 80%;
+  }
+  :hover {
+    background: rgb(240, 240, 240);
+  }
 }
 
 .is-active {
   background-color: rgb(232, 232, 232);
-}
-.menubar_button:hover {
-  background-color: rgb(240, 240, 240);
-}
-
-.menubar_button > img {
-  height: 80%;
 }
 </style>

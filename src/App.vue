@@ -16,15 +16,15 @@ export default {
 }
 </script>
 
-<style>
-@import "./reset.css";
+<style lang="scss">
+@import "./assets/reset";
+@import "./assets/sass/variables";
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: $mainFont;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  color: $mainColor;
 }
 
 #nav {
@@ -32,11 +32,10 @@ export default {
 }
 
 #nav a {
-  font-weight: bold;
-  color: #2c3e50;
+  color: $mainColor;
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: $activeColor;
 }
 </style>
