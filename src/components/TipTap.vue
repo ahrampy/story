@@ -40,7 +40,7 @@
           @click="commands.code"
         >
           <icon name="code" />
-        </button>-->
+        </button> -->
 
         <!-- <button
           class="menubar_button"
